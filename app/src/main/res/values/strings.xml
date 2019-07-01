@@ -1,0 +1,23 @@
+<resources>
+
+    <string name="app_name">RMDY Test App</string>
+
+    <string name="hint_username"> Username</string>
+    <string name="hint_password">Password</string>
+
+    <string name="btn_log_in">Log In</string>
+    <string name="btn_close">Close</string>
+
+    <string name="menu_week">Week</string>
+    <string name="menu_month">Month</string>
+    <string name="menu_quarter">Quarter</string>
+
+    <string name="chart_header">Steps chart (%1$s)</string>
+    <string name="chart_y_label">Steps</string>
+    <string name="chart_x_label">Dates</string>
+
+    <string name="error_field_empty">%1$s can not be empty</string>
+    <string name="error_no_connection">No internet connection</string>
+    <string name="error_internal">Internal system error</string>
+
+</resources>

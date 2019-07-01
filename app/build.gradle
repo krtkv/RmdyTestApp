@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.kk.rmdy"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            buildConfigField "String", "API_ENDPOINT", '"https://dev-mdt-api.wellnesslayers.com/API/"'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField "String", "API_ENDPOINT", '"https://dev-mdt-api.wellnesslayers.com/API/"'
+        }
+    }
+}
+ext {
+    gsonLibVer = "2.8.5"
+    koinLibVer = "2.0.1"
+    supportLibVer = "28.0.0"
+    retrofitLibVer = "2.6.0"
+    constraintLibVer = "1.1.3"
+    interceptorLibVer = "3.12.1"
+    coroutinesLibVer = "1.3.0-M1"
+    chartLibVer = "3.1.0"
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesLibVer"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesLibVer"
+
+    //Support
+    implementation "com.android.support:design:$supportLibVer"
+    implementation "com.android.support:appcompat-v7:$supportLibVer"
+    implementation "com.android.support.constraint:constraint-layout:$constraintLibVer"
+
+    //Koin
+    implementation "org.koin:koin-android:$koinLibVer"
+    implementation "org.koin:koin-android-viewmodel:$koinLibVer"
+
+    //Network
+    implementation "com.google.code.gson:gson:$gsonLibVer"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitLibVer"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitLibVer"
+    implementation "com.squareup.okhttp3:logging-interceptor:$interceptorLibVer"
+
+    //Chart
+    implementation "com.github.PhilJay:MPAndroidChart:v$chartLibVer"
+
+}

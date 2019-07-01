@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="@dimen/default_margin"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_arrow_back" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvChartHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintBottom_toTopOf="@id/stepsChart"
+        app:layout_constraintEnd_toEndOf="@id/stepsChart"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@id/stepsChart"
+        app:layout_constraintTop_toBottomOf="@id/btnBack" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvAxisY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rotation="-90"
+        android:text="@string/chart_y_label"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/stepsChart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/stepsChart" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/stepsChart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/tvAxisX"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvAxisY"
+        app:layout_constraintTop_toBottomOf="@id/tvChartHeader" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvAxisX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_10dp"
+        android:gravity="center"
+        android:text="@string/chart_x_label"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/bottomView"
+        app:layout_constraintEnd_toEndOf="@id/stepsChart"
+        app:layout_constraintStart_toStartOf="@id/stepsChart"
+        app:layout_constraintTop_toBottomOf="@id/stepsChart" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:theme="@style/BlueProgressBar"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/bottomView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBack" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:itemIconTint="@color/bottom_navigation_text_color"
+        app:itemTextColor="@color/bottom_navigation_text_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/chart_navigation_items" />
+
+</android.support.constraint.ConstraintLayout>
